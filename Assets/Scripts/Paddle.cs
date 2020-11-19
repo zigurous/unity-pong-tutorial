@@ -9,6 +9,9 @@ public class Paddle : MonoBehaviour
     [Tooltip("How quickly the paddle moves up and down.")]
     public float speed = 5.0f;
 
+    /// <summary>
+    /// The rigidbody component attached to the paddle.
+    /// </summary>
     protected Rigidbody2D _rigidbody;
 
     protected virtual void Awake()

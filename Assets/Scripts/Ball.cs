@@ -18,6 +18,9 @@ public class Ball : MonoBehaviour
     [Tooltip("The maximum speed of the ball.")]
     public float maxSpeed = 800.0f;
 
+    /// <summary>
+    /// The rigidbody component attached to the ball.
+    /// </summary>
     private Rigidbody2D _rigidbody;
 
     private void Awake()

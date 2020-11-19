@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private int _playerScore = 0;
+
+    /// <summary>
+    /// The current score of the player.
+    /// </summary>
     public int playerScore
     {
         get => _playerScore;
@@ -20,6 +24,10 @@ public class GameManager : MonoBehaviour
     }
 
     private int _computerScore = 0;
+
+    /// <summary>
+    /// The current score of the computer.
+    /// </summary>
     public int computerScore
     {
         get => _computerScore;
