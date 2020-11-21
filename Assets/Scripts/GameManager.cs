@@ -7,43 +7,44 @@ using UnityEngine.UI;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    private int _playerScore = 0;
+    /// <summary>
+    /// The ball component.
+    /// </summary>
+    [Tooltip("The ball component.")]
+    public Ball ball;
+
+    /// <summary>
+    /// The player's paddle component.
+    /// </summary>
+    [Tooltip("The player's paddle component.")]
+    public Paddle playerPaddle;
 
     /// <summary>
     /// The current score of the player.
     /// </summary>
-    public int playerScore
-    {
-        get => _playerScore;
-        private set
-        {
-            _playerScore = value;
-            // Update the UI anytime the score changes
-            this.playerScoreText.text = _playerScore.ToString();
-        }
-    }
+    public int playerScore { get; private set; }
 
-    private int _computerScore = 0;
+    /// <summary>
+    /// The UI text that displays the player's score.
+    /// </summary>
+    [Tooltip("The UI text the displays the player's score.")]
+    public Text playerScoreText;
+
+    /// <summary>
+    /// The computer's paddle component.
+    /// </summary>
+    [Tooltip("The computer's paddle component.")]
+    public Paddle computerPaddle;
 
     /// <summary>
     /// The current score of the computer.
     /// </summary>
-    public int computerScore
-    {
-        get => _computerScore;
-        private set
-        {
-            _computerScore = value;
-            // Update the UI anytime the score changes
-            this.computerScoreText.text = _computerScore.ToString();
-        }
-    }
+    public int computerScore { get; private set; }
 
-    [Header("References")]
-    public Ball ball;
-    public Paddle playerPaddle;
-    public Paddle computerPaddle;
-    public Text playerScoreText;
+    /// <summary>
+    /// The UI text that displays the computer's score.
+    /// </summary>
+    [Tooltip("The UI text the displays the computer's score.")]
     public Text computerScoreText;
 
     private void Start()
@@ -61,9 +62,9 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        // Reset the score
-        this.playerScore = 0;
-        this.computerScore = 0;
+        // Reset the scores
+        SetPlayerScore(0);
+        SetComputerScore(0);
 
         // Start the first round
         StartRound();
@@ -82,20 +83,32 @@ public class GameManager : MonoBehaviour
 
     public void PlayerScores()
     {
-        this.playerScore++;
-
-        // Immediately start a new round
-        // after the player scores
+        // Increase the player's score by 1
+        // then start a new round
+        SetPlayerScore(this.playerScore + 1);
         StartRound();
     }
 
     public void ComputerScores()
     {
-        this.computerScore++;
-
-        // Immediately start a new round
-        // after the computer scores
+        // Increase the computer's score by 1
+        // then start a new round
+        SetComputerScore(this.computerScore + 1);
         StartRound();
+    }
+
+    private void SetPlayerScore(int score)
+    {
+        // Set the score and update the UI text
+        this.playerScore = score;
+        this.playerScoreText.text = score.ToString();
+    }
+
+    private void SetComputerScore(int score)
+    {
+        // Set the score and update the UI text
+        this.computerScore = score;
+        this.computerScoreText.text = score.ToString();
     }
 
 }
