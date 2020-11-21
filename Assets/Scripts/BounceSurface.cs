@@ -8,11 +8,11 @@
 public class BounceSurface : MonoBehaviour
 {
     /// <summary>
-    /// The percent increase of the ball's speed after
+    /// The strength of the force added to the ball after
     /// bouncing off the surface.
     /// </summary>
-    [Tooltip("The percent increase of the ball's speed after bouncing off the surface.")]
-    public float bounceSpeedIncrease = 1.01f;
+    [Tooltip("The strength of the force added to the ball after bouncing off the surface.")]
+    public float bounceStrength;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,8 +21,12 @@ public class BounceSurface : MonoBehaviour
 
         // If the ball collided with the surface then the
         // reference will not be null
-        if (ball != null) {
-            ball.IncreaseSpeed(this.bounceSpeedIncrease);
+        if (ball != null)
+        {
+            // Apply a force to the ball in the
+            // opposite direction of the surface
+            Vector2 normal = collision.GetContact(0).normal;
+            ball.AddForce(-normal * this.bounceStrength);
         }
     }
 
