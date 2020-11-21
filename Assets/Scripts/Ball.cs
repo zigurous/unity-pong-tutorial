@@ -19,6 +19,7 @@ public class Ball : MonoBehaviour
 
     private void Awake()
     {
+        // Store references to the ball's components
         _rigidbody = GetComponent<Rigidbody2D>();
     }
 

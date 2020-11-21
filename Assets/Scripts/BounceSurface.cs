@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Increases the speed of the ball after bouncing
-/// off the surface.
+/// Adds a force to the ball after bouncing off the surface.
 /// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
 public class BounceSurface : MonoBehaviour

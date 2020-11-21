@@ -7,7 +7,8 @@
 public class ComputerPaddle : Paddle
 {
     /// <summary>
-    /// A reference to the ball so the computer can track its position.
+    /// A reference to the ball so the computer can
+    /// track its position.
     /// </summary>
     [Tooltip("A reference to the ball so the computer can track its position.")]
     public Ball ball;
