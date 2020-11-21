@@ -11,45 +11,31 @@ public class ComputerPaddle : Paddle
     /// track its position.
     /// </summary>
     [Tooltip("A reference to the ball so the computer can track its position.")]
-    public Ball ball;
+    public Rigidbody2D ball;
 
-    /// <summary>
-    /// The number of seconds it takes the computer
-    /// to respond to changes in the ball's position.
-    /// </summary>
-    [Tooltip("The number of seconds it takes the computer to respond to changes in the ball's position.")]
-    public float reactionTime = 0.1f;
-
-    /// <summary>
-    /// The rate of change of the paddle's position.
-    /// </summary>
-    private Vector3 _velocity;
-
-    private void Update()
+    private void FixedUpdate()
     {
-        Vector3 currentPosition = this.transform.position;
-
-        // Track the position of the ball in the y-axis
-        Vector3 desiredPosition = currentPosition;
-        desiredPosition.y = this.ball.transform.position.y;
-
-        if (this.reactionTime > 0.0f)
+        // Check if the ball is moving towards the paddle (positive x velocity)
+        // or away from the paddle (negative x velocity)
+        if (this.ball.velocity.x > 0.0f)
         {
-            // Slowly move the position of the paddle toward
-            // the desired position based on the computer's
-            // reaction time and max speed
-            this.transform.position = Vector3.SmoothDamp(
-                current: currentPosition,
-                target: desiredPosition,
-                currentVelocity: ref _velocity,
-                smoothTime: this.reactionTime,
-                maxSpeed: this.speed);
+            // Track the position of the ball and move towards it
+            // so it can be hit
+            if (this.ball.position.y > _rigidbody.position.y) {
+                _rigidbody.AddForce(Vector2.up * this.speed);
+            } else if (this.ball.position.y < _rigidbody.position.y) {
+                _rigidbody.AddForce(Vector2.down * this.speed);
+            }
         }
         else
         {
-            // If there is no reaction time then
-            // set the desired position immediately
-            this.transform.position = desiredPosition;
+            // Move towards the center of the field and idle there
+            // until the ball starts coming towards the paddle again
+            if (_rigidbody.position.y > 0.0f) {
+                _rigidbody.AddForce(Vector2.down * this.speed);
+            } else if (_rigidbody.position.y < 0.0f) {
+                _rigidbody.AddForce(Vector2.up * this.speed);
+            }
         }
     }
 

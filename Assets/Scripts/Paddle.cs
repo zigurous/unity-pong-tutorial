@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Defines the base properties of a paddle.
+/// </summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class Paddle : MonoBehaviour
 {
@@ -7,7 +10,7 @@ public class Paddle : MonoBehaviour
     /// How quickly the paddle moves up and down.
     /// </summary>
     [Tooltip("How quickly the paddle moves up and down.")]
-    public float speed = 5.0f;
+    public float speed = 8.0f;
 
     /// <summary>
     /// The rigidbody component attached to the paddle.
@@ -22,12 +25,10 @@ public class Paddle : MonoBehaviour
 
     public void ResetPosition()
     {
-        // Set the y-axis position to zero while keeping
-        // the x-axis and z-axis the same
-        this.transform.position = new Vector3(this.transform.position.x, 0.0f, this.transform.position.z);
-
         // Stop any motion that might be applied to the paddle
+        // and reset the y-axis position to zero
         _rigidbody.velocity = Vector2.zero;
+        _rigidbody.position = new Vector2(_rigidbody.position.x, 0.0f);
     }
 
 }
