@@ -8,20 +8,19 @@ public class PlayerPaddle : Paddle
 {
     /// <summary>
     /// The direction the player is moving.
-    /// 1=up, -1=down, 0=none
     /// </summary>
-    private int _direction = 0;
+    private Vector2 _direction;
 
     private void Update()
     {
         // Set the direction of the paddle
         // based on the input key being pressed
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-            _direction = 1;
+            _direction = Vector2.up;
         } else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-            _direction = -1;
+            _direction = Vector2.down;
         } else {
-            _direction = 0;
+            _direction = Vector2.zero;
         }
     }
 
@@ -29,8 +28,8 @@ public class PlayerPaddle : Paddle
     {
         // Move the paddle by applying a force
         // in the direction the player is moving
-        if (_direction != 0) {
-            _rigidbody.AddForce(new Vector2(0.0f, _direction) * this.speed);
+        if (_direction.sqrMagnitude != 0) {
+            _rigidbody.AddForce(_direction * this.speed);
         }
     }
 
