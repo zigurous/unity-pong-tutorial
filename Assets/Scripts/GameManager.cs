@@ -2,8 +2,7 @@
 using UnityEngine.UI;
 
 /// <summary>
-/// Manages the state of the game, such as
-/// scoring, and starting a new game and round.
+/// Manages the state of the game such as scoring and starting new rounds.
 /// </summary>
 public class GameManager : MonoBehaviour
 {
@@ -54,7 +53,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        // Start a new game by pressing 'R'
         if (Input.GetKeyDown(KeyCode.R)) {
             NewGame();
         }
@@ -62,51 +60,39 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        // Reset the scores
         SetPlayerScore(0);
         SetComputerScore(0);
-
-        // Start the first round
         StartRound();
     }
 
     public void StartRound()
     {
-        // Reset the positions of all the objects
         this.playerPaddle.ResetPosition();
         this.computerPaddle.ResetPosition();
         this.ball.ResetPosition();
-
-        // Add the initial starting force of the ball
         this.ball.AddStartingForce();
     }
 
     public void PlayerScores()
     {
-        // Increase the player's score by 1
-        // then start a new round
         SetPlayerScore(this.playerScore + 1);
         StartRound();
     }
 
     public void ComputerScores()
     {
-        // Increase the computer's score by 1
-        // then start a new round
         SetComputerScore(this.computerScore + 1);
         StartRound();
     }
 
     private void SetPlayerScore(int score)
     {
-        // Set the score and update the UI text
         this.playerScore = score;
         this.playerScoreText.text = score.ToString();
     }
 
     private void SetComputerScore(int score)
     {
-        // Set the score and update the UI text
         this.computerScore = score;
         this.computerScoreText.text = score.ToString();
     }

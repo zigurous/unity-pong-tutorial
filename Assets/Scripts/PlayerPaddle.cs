@@ -1,35 +1,32 @@
 ﻿using UnityEngine;
 
 /// <summary>
-/// Handles moving the player's paddle based on
-/// user input.
+/// Handles moving the player's paddle based on user input.
 /// </summary>
 public class PlayerPaddle : Paddle
 {
     /// <summary>
     /// The direction the player is moving.
     /// </summary>
-    private Vector2 _direction;
+    public Vector2 direction { get; private set; }
 
     private void Update()
     {
-        // Set the direction of the paddle
-        // based on the input key being pressed
+        // Set the direction of the paddle based on the input key being pressed
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
-            _direction = Vector2.up;
+            this.direction = Vector2.up;
         } else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) {
-            _direction = Vector2.down;
+            this.direction = Vector2.down;
         } else {
-            _direction = Vector2.zero;
+            this.direction = Vector2.zero;
         }
     }
 
     private void FixedUpdate()
     {
-        // Move the paddle by applying a force
-        // in the direction the player is moving
-        if (_direction.sqrMagnitude != 0) {
-            _rigidbody.AddForce(_direction * this.speed);
+        // Move the paddle by applying a force in the set direction
+        if (this.direction.sqrMagnitude != 0) {
+            this.rigidbody.AddForce(this.direction * this.speed);
         }
     }
 
