@@ -1,14 +1,7 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// Handles moving the computer's paddle through simple artificial intelligence.
-/// </summary>
 public class ComputerPaddle : Paddle
 {
-    /// <summary>
-    /// A reference to the ball so the computer can track its position.
-    /// </summary>
-    [Tooltip("A reference to the ball so the computer can track its position.")]
     public Rigidbody2D ball;
 
     private void FixedUpdate()
