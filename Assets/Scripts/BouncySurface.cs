@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class BounceSurface : MonoBehaviour
+public class BouncySurface : MonoBehaviour
 {
     public float bounceStrength;
 
