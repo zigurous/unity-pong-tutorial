@@ -31,9 +31,4 @@ public class Ball : MonoBehaviour
         rigidbody.AddForce(direction * speed);
     }
 
-    public void AddForce(Vector2 force)
-    {
-        rigidbody.AddForce(force);
-    }
-
 }
