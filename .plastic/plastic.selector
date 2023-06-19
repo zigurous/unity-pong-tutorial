@@ -1,0 +1,4 @@
+repository "Pong@imad_saddik@cloud"
+  path "/"
+    br "/main"
+    co "/main"
