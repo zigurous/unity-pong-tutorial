@@ -1,18 +1,19 @@
 {
-  "files.exclude": {
-    "**/.DS_Store": true,
-    "**/*.booproj": true,
-    "**/*.meta": true,
-    "**/*.pidb": true,
-    "**/*.suo": true,
-    "build/": true,
-    "Build/": true,
-    "Library/": true,
-    "library/": true,
-    "obj/": true,
-    "Obj/": true,
-    "temp/": true,
-    "Temp/": true,
-    "UIElementsSchema/": true
-  }
+    "files.exclude": {
+        "**/.DS_Store": true,
+        "**/*.booproj": true,
+        "**/*.meta": true,
+        "**/*.pidb": true,
+        "**/*.suo": true,
+        "build/": true,
+        "Build/": true,
+        "Library/": true,
+        "library/": true,
+        "obj/": true,
+        "Obj/": true,
+        "temp/": true,
+        "Temp/": true,
+        "UIElementsSchema/": true
+    },
+    "dotnet.defaultSolution": "Pong.sln"
 }
