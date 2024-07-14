@@ -34,34 +34,34 @@ public class GameManager : MonoBehaviour
 
     public void StartRound()
     {
-        this.playerPaddle.ResetPosition();
-        this.computerPaddle.ResetPosition();
-        this.ball.ResetPosition();
-        this.ball.AddStartingForce();
+        playerPaddle.ResetPosition();
+        computerPaddle.ResetPosition();
+        ball.ResetPosition();
+        ball.AddStartingForce();
     }
 
     public void PlayerScores()
     {
-        SetPlayerScore(this.playerScore + 1);
+        SetPlayerScore(playerScore + 1);
         StartRound();
     }
 
     public void ComputerScores()
     {
-        SetComputerScore(this.computerScore + 1);
+        SetComputerScore(computerScore + 1);
         StartRound();
     }
 
     private void SetPlayerScore(int score)
     {
-        this.playerScore = score;
-        this.playerScoreText.text = score.ToString();
+        playerScore = score;
+        playerScoreText.text = score.ToString();
     }
 
     private void SetComputerScore(int score)
     {
-        this.computerScore = score;
-        this.computerScoreText.text = score.ToString();
+        computerScore = score;
+        computerScoreText.text = score.ToString();
     }
 
 }

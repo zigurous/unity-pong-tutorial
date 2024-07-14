@@ -8,13 +8,13 @@ public class Paddle : MonoBehaviour
 
     private void Awake()
     {
-        this.rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
     }
 
     public void ResetPosition()
     {
-        this.rigidbody.velocity = Vector2.zero;
-        this.rigidbody.position = new Vector2(this.rigidbody.position.x, 0f);
+        rigidbody.velocity = Vector2.zero;
+        rigidbody.position = new Vector2(rigidbody.position.x, 0f);
     }
 
 }
