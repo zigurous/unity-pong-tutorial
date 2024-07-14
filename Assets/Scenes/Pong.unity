@@ -1106,6 +1106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  useDynamicBounce: 0
   ball: {fileID: 702247804}
 --- !u!61 &1362602730
 BoxCollider2D:
@@ -1317,6 +1318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
+  useDynamicBounce: 0
 --- !u!50 &1535292067
 Rigidbody2D:
   serializedVersion: 4
