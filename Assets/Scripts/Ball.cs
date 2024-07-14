@@ -3,7 +3,9 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class Ball : MonoBehaviour
 {
-    public float speed = 200f;
+    public float baseSpeed = 5f;
+    public float maxSpeed = Mathf.Infinity;
+    public float currentSpeed { get; set; }
     public new Rigidbody2D rigidbody { get; private set; }
 
     private void Awake()
@@ -27,8 +29,18 @@ public class Ball : MonoBehaviour
         float y = Random.value < 0.5f ? Random.Range(-1f, -0.5f)
                                       : Random.Range(0.5f, 1f);
 
-        Vector2 direction = new Vector2(x, y);
-        rigidbody.AddForce(direction * speed);
+        // Apply the initial force and set the current speed
+        Vector2 direction = new Vector2(x, y).normalized;
+        rigidbody.AddForce(direction * baseSpeed, ForceMode2D.Impulse);
+        currentSpeed = baseSpeed;
+    }
+
+    private void FixedUpdate()
+    {
+        // Clamp the velocity of the ball to the max speed
+        Vector2 direction = rigidbody.velocity.normalized;
+        currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
+        rigidbody.velocity = direction * currentSpeed;
     }
 
 }

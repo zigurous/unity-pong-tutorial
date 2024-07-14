@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Paddle : MonoBehaviour
+public abstract class Paddle : MonoBehaviour
 {
     public float speed = 8f;
     public new Rigidbody2D rigidbody { get; private set; }

@@ -3,15 +3,14 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public Ball ball;
-
-    public Paddle playerPaddle;
     public int playerScore { get; private set; }
-    public Text playerScoreText;
-
-    public Paddle computerPaddle;
     public int computerScore { get; private set; }
-    public Text computerScoreText;
+
+    [SerializeField] private Ball ball;
+    [SerializeField] private Paddle playerPaddle;
+    [SerializeField] private Paddle computerPaddle;
+    [SerializeField] private Text playerScoreText;
+    [SerializeField] private Text computerScoreText;
 
     private void Start()
     {
@@ -29,27 +28,34 @@ public class GameManager : MonoBehaviour
     {
         SetPlayerScore(0);
         SetComputerScore(0);
-        StartRound();
+        NewRound();
     }
 
-    public void StartRound()
+    public void NewRound()
     {
         playerPaddle.ResetPosition();
         computerPaddle.ResetPosition();
         ball.ResetPosition();
+
+        CancelInvoke();
+        Invoke(nameof(StartRound), 1f);
+    }
+
+    private void StartRound()
+    {
         ball.AddStartingForce();
     }
 
-    public void PlayerScores()
+    public void OnPlayerScored()
     {
         SetPlayerScore(playerScore + 1);
-        StartRound();
+        NewRound();
     }
 
-    public void ComputerScores()
+    public void OnComputerScored()
     {
         SetComputerScore(computerScore + 1);
-        StartRound();
+        NewRound();
     }
 
     private void SetPlayerScore(int score)

@@ -195,7 +195,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 417150622}
-        m_MethodName: ComputerScores
+        m_MethodName: OnComputerScored
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -338,7 +338,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Positions:
   - {x: 0, y: -10, z: 1}
   - {x: 0, y: 10, z: 1}
@@ -442,8 +442,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 702247805}
   playerPaddle: {fileID: 1535292066}
-  playerScoreText: {fileID: 228497188}
   computerPaddle: {fileID: 1362602729}
+  playerScoreText: {fileID: 228497188}
   computerScoreText: {fileID: 618610096}
 --- !u!4 &417150623
 Transform:
@@ -737,7 +737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b2399eb776bf94e908930cf937f564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
+  baseSpeed: 5
+  maxSpeed: Infinity
 --- !u!61 &702247806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -838,7 +839,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 417150622}
-        m_MethodName: PlayerScores
+        m_MethodName: OnPlayerScored
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -918,7 +919,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84343d3293836cb469aff5fa144e2287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceStrength: 0.5
+  forceType: 0
+  bounceStrength: 0.05
 --- !u!1 &1327430166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,7 +1145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84343d3293836cb469aff5fa144e2287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceStrength: 0.5
+  forceType: 0
+  bounceStrength: 0.1
 --- !u!1 &1439415306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,7 +1217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84343d3293836cb469aff5fa144e2287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceStrength: 0.5
+  forceType: 0
+  bounceStrength: 0.05
 --- !u!1 &1535292063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,7 +1376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84343d3293836cb469aff5fa144e2287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceStrength: 0.5
+  forceType: 0
+  bounceStrength: 0.1
 --- !u!1 &1635559012
 GameObject:
   m_ObjectHideFlags: 0

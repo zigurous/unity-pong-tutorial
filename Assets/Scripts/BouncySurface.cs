@@ -3,7 +3,14 @@
 [RequireComponent(typeof(BoxCollider2D))]
 public class BouncySurface : MonoBehaviour
 {
-    public float bounceStrength = 1f;
+    public enum ForceType
+    {
+        Additive,
+        Multiplicative,
+    }
+
+    public ForceType forceType = ForceType.Additive;
+    public float bounceStrength = 0f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -11,10 +18,16 @@ public class BouncySurface : MonoBehaviour
 
         if (ball != null)
         {
-            // Apply a force to the ball in the opposite direction of the
-            // surface to make it bounce off
-            Vector2 normal = collision.GetContact(0).normal;
-            ball.rigidbody.AddForce(-normal * bounceStrength, ForceMode2D.Impulse);
+            switch (forceType)
+            {
+                case ForceType.Additive:
+                    ball.currentSpeed += bounceStrength;
+                    return;
+
+                case ForceType.Multiplicative:
+                    ball.currentSpeed *= bounceStrength;
+                    return;
+            }
         }
     }
 
