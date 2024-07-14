@@ -442,8 +442,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball: {fileID: 702247805}
   playerPaddle: {fileID: 1535292066}
-  computerPaddle: {fileID: 1362602729}
   playerScoreText: {fileID: 228497188}
+  computerPaddle: {fileID: 1362602729}
   computerScoreText: {fileID: 618610096}
 --- !u!4 &417150623
 Transform:
