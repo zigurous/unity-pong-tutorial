@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 /// <summary>
-/// Triggers a score event when the ball collides
-/// with the zone.
+/// Triggers a score event when the ball collides with the zone.
 /// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
 public class ScoringZone : MonoBehaviour
@@ -12,21 +11,15 @@ public class ScoringZone : MonoBehaviour
     /// The event triggered when a player scores.
     /// </summary>
     [Tooltip("The event triggered when a player scores.")]
-    public EventTrigger.TriggerEvent scoreTrigger;
+    public UnityEvent scoreTrigger;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Get a reference to the ball from the colliding object
         Ball ball = collision.gameObject.GetComponent<Ball>();
 
-        // If the ball collided with the zone then the
-        // reference will not be null
-        if (ball != null)
-        {
-            // Invoke the event trigger callback
-            BaseEventData eventData = new BaseEventData(EventSystem.current);
-            eventData.selectedObject = this.gameObject;
-            this.scoreTrigger.Invoke(eventData);
+        // If the ball is null then we collided with something else
+        if (ball != null) {
+            this.scoreTrigger.Invoke();
         }
     }
 
