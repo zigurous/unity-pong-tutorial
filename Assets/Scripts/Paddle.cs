@@ -36,7 +36,7 @@ public abstract class Paddle : MonoBehaviour
             // Rotate the direction of the ball based on the contact distance
             // to make the gameplay more dynamic and interesting
             float maxBounceAngle = 75f;
-            float bounceAngle = (contactDistance.y / paddle.bounds.size.y) * maxBounceAngle;
+            float bounceAngle = contactDistance.y / paddle.bounds.size.y * maxBounceAngle;
             ballDirection = Quaternion.AngleAxis(bounceAngle, rotationAxis) * ballDirection;
 
             // Re-apply the new direction to the ball
