@@ -25,12 +25,10 @@ public class Ball : MonoBehaviour
 
     public void ResetPosition()
     {
-        // Reset the position to the center
-        // of the scene (zero)
-        this.transform.position = Vector3.zero;
-
         // Stop any motion applied to the ball
+        // and reset the position to the center
         _rigidbody.velocity = Vector2.zero;
+        _rigidbody.position = Vector2.zero;
     }
 
     public void AddStartingForce()
