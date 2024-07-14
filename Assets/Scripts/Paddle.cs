@@ -17,7 +17,7 @@ public class Paddle : MonoBehaviour
     /// </summary>
     protected Rigidbody2D _rigidbody;
 
-    protected virtual void Awake()
+    private void Awake()
     {
         // Store references to the paddle's components
         _rigidbody = GetComponent<Rigidbody2D>();
