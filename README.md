@@ -5,6 +5,5 @@
 - **Difficulty**: Beginner
 - **Topics**: Physics, AI
 - **Version**: Unity 2019.4 LTS
-- **Author**: [@adamgraham](https://github.com/adamgraham)
-- [**Tutorial Video**](https://youtu.be/AcpaYq0ihaM)
-- [**Source Code**](https://github.com/zigurous/unity-pong-tutorial)
+- [**Download**](https://github.com/zigurous/unity-pong-tutorial/archive/refs/tags/v1.0.0.zip)
+- [**Watch Video**](https://youtu.be/AcpaYq0ihaM)
