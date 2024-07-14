@@ -3,22 +3,21 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public abstract class Paddle : MonoBehaviour
 {
-    public new Rigidbody2D rigidbody { get; private set; }
+    protected Rigidbody2D rb;
 
     public float speed = 8f;
-
     [Tooltip("Changes how the ball bounces off the paddle depending on where it hits the paddle. The further from the center of the paddle, the steeper the bounce angle.")]
     public bool useDynamicBounce = false;
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void ResetPosition()
     {
-        rigidbody.velocity = Vector2.zero;
-        rigidbody.position = new Vector2(rigidbody.position.x, 0f);
+        rb.velocity = Vector2.zero;
+        rb.position = new Vector2(rb.position.x, 0f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

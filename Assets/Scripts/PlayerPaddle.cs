@@ -2,7 +2,7 @@
 
 public class PlayerPaddle : Paddle
 {
-    public Vector2 direction { get; private set; }
+    private Vector2 direction;
 
     private void Update()
     {
@@ -18,7 +18,7 @@ public class PlayerPaddle : Paddle
     private void FixedUpdate()
     {
         if (direction.sqrMagnitude != 0) {
-            rigidbody.AddForce(direction * speed);
+            rb.AddForce(direction * speed);
         }
     }
 

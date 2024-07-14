@@ -3,7 +3,7 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class Ball : MonoBehaviour
 {
-    public new Rigidbody2D rigidbody { get; private set; }
+    private Rigidbody2D rb;
 
     public float baseSpeed = 5f;
     public float maxSpeed = Mathf.Infinity;
@@ -11,13 +11,13 @@ public class Ball : MonoBehaviour
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void ResetPosition()
     {
-        rigidbody.velocity = Vector2.zero;
-        rigidbody.position = Vector2.zero;
+        rb.velocity = Vector2.zero;
+        rb.position = Vector2.zero;
     }
 
     public void AddStartingForce()
@@ -32,16 +32,16 @@ public class Ball : MonoBehaviour
 
         // Apply the initial force and set the current speed
         Vector2 direction = new Vector2(x, y).normalized;
-        rigidbody.AddForce(direction * baseSpeed, ForceMode2D.Impulse);
+        rb.AddForce(direction * baseSpeed, ForceMode2D.Impulse);
         currentSpeed = baseSpeed;
     }
 
     private void FixedUpdate()
     {
         // Clamp the velocity of the ball to the max speed
-        Vector2 direction = rigidbody.velocity.normalized;
+        Vector2 direction = rb.velocity.normalized;
         currentSpeed = Mathf.Min(currentSpeed, maxSpeed);
-        rigidbody.velocity = direction * currentSpeed;
+        rb.velocity = direction * currentSpeed;
     }
 
 }

@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int playerScore { get; private set; }
-    public int computerScore { get; private set; }
-
     [SerializeField] private Ball ball;
     [SerializeField] private Paddle playerPaddle;
     [SerializeField] private Paddle computerPaddle;
     [SerializeField] private Text playerScoreText;
     [SerializeField] private Text computerScoreText;
+
+    private int playerScore;
+    private int computerScore;
 
     private void Start()
     {

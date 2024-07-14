@@ -14,9 +14,7 @@ public class BouncySurface : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Ball ball = collision.gameObject.GetComponent<Ball>();
-
-        if (ball != null)
+        if (collision.gameObject.TryGetComponent<Ball>(out var ball))
         {
             switch (forceType)
             {
