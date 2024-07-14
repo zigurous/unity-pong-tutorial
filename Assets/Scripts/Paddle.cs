@@ -21,12 +21,11 @@ public class Paddle : MonoBehaviour
 
     public void ResetPosition()
     {
-        // Set the y-axis position to zero while
-        // keeping the x and z-axis the same
+        // Set the y-axis position to zero while keeping
+        // the x-axis and z-axis the same
         this.transform.position = new Vector3(this.transform.position.x, 0.0f, this.transform.position.z);
 
-        // Stop any motion that might be applied
-        // to the paddle
+        // Stop any motion that might be applied to the paddle
         _rigidbody.velocity = Vector2.zero;
     }
 

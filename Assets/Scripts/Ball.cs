@@ -13,12 +13,6 @@ public class Ball : MonoBehaviour
     public float speed = 200.0f;
 
     /// <summary>
-    /// The maximum speed of the ball.
-    /// </summary>
-    [Tooltip("The maximum speed of the ball.")]
-    public float maxSpeed = 800.0f;
-
-    /// <summary>
     /// The rigidbody component attached to the ball.
     /// </summary>
     private Rigidbody2D _rigidbody;
@@ -51,24 +45,15 @@ public class Ball : MonoBehaviour
         float y = Random.value < 0.5f ? Random.Range(-1.0f, -0.5f)
                                       : Random.Range(0.5f, 1.0f);
 
-        // Apply the force to the ball
+        // Apply the force to the ball by
+        // multiplying direction and speed
         Vector2 direction = new Vector2(x, y);
         _rigidbody.AddForce(direction * this.speed);
     }
 
-    public void IncreaseSpeed(float multiplier)
+    public void AddForce(Vector2 force)
     {
-        // Get the current direction of the ball
-        // by normalizing its velocity vector
-        Vector2 direction = _rigidbody.velocity.normalized;
-
-        // Multiply the current speed (magnitude)
-        // by the seped multiplier. Ensure it does
-        // not exceed the max speed.
-        float speed = Mathf.Min(_rigidbody.velocity.magnitude * multiplier, this.maxSpeed);
-
-        // Re-assign the velocity of the ball
-        _rigidbody.velocity = direction * speed;
+        _rigidbody.AddForce(force);
     }
 
 }

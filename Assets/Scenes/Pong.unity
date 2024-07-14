@@ -738,7 +738,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  maxSpeed: 800
 --- !u!61 &702247806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -919,7 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84343d3293836cb469aff5fa144e2287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSpeedIncrease: 1.01
+  bounceStrength: 5
 --- !u!1 &1327430166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84343d3293836cb469aff5fa144e2287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSpeedIncrease: 1.01
+  bounceStrength: 10
 --- !u!1 &1439415306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,7 +1215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84343d3293836cb469aff5fa144e2287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSpeedIncrease: 1.01
+  bounceStrength: 5
 --- !u!1 &1535292063
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,7 +1373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84343d3293836cb469aff5fa144e2287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceSpeedIncrease: 1.01
+  bounceStrength: 10
 --- !u!1 &1635559012
 GameObject:
   m_ObjectHideFlags: 0
